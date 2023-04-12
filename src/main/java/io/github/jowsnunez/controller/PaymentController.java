@@ -20,7 +20,6 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +31,7 @@ import org.springframework.web.servlet.view.RedirectView;
  *
  * @author el_fr
  */
-@CrossOrigin(origins = "*")
+
 @RestController
 @RequestMapping("payment")
 public class PaymentController {
@@ -55,7 +54,7 @@ public class PaymentController {
             return ResponseEntity.ok(handler.requestCreateOrder(req));
         } catch (MalformedURLException ex) {
             Logger.getLogger(PaymentController.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            return ResponseEntity.internalServerError().body("Server Error");
         }
 
     }
