@@ -1,0 +1,3 @@
+[submodule "integration-paypal-client"]
+	path = integration-paypal-client
+	url = https://github.com/JowsNunez/integration-paypal-client.git
